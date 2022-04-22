@@ -41,6 +41,14 @@
                         <strong>Role:</strong>
                         {!! Form::select('roles[]', $roles, $userRole, array('class' => 'form-control','multiple')) !!}
                     </div>
+                    <div class="form-group">
+                        <strong>City:</strong>
+                        {!! Form::text('city', array('placeholder' => 'City','class' => 'form-control')) !!}
+                    </div>
+                    <div class="form-group">
+                        <strong>Phone Number:</strong>
+                        {!! Form::text('phone_number', null, array('placeholder' => 'Phone Number','class' => 'form-control')) !!}
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 {!! Form::close() !!}
             </div>

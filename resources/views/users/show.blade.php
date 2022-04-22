@@ -28,6 +28,14 @@
                     <strong>Password:</strong>
                     ********
                 </div>
+                <div class="lead">
+                    <strong>City:</strong>
+                    {{ $user->city }}
+                </div>
+                <div class="lead">
+                    <strong>Phone Number:</strong>
+                    {{ $user->phone_number }}
+                </div>
             </div>
         </div>
     </div>
