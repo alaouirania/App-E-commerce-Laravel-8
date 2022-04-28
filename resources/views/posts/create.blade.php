@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @section('content')
 <div class="container">
@@ -28,6 +29,50 @@
                         <strong>Body:</strong>
                         {!! Form::textarea('body', null, array('placeholder' => 'Body','class' => 'form-control')) !!}
                     </div>
+                    <div class="form-group">
+                        <strong>Description:</strong>
+                        {!! Form::text('description', null, array('placeholder' => 'Description','class' => 'form-control')) !!}
+                    </div>
+                    <div class="form-group">
+                        <strong>Price:</strong>
+                        {!! Form::text('price', null, array('placeholder' => 'Price','class' => 'form-control')) !!}
+                    </div>
+                    <div class="form-group">
+                        <strong>Category:</strong><br>   
+                        <?php
+                        $category = array('IT and electrics', 'Vehicles', 'Real Estate', 'Clothing and well-being', 'Hobbies and entertainment');
+                     
+                    ?>
+                        {!! Form::select('category[]', $category,[], array('class' => 'form-control','multiple')) !!}
+
+                        
+                           </div>
+                    <div class="form-group">
+                        <strong>Image: <br></strong>
+                        {!! Form::file('image', null, array('placeholder' => ' Choose File','class' => 'form-control')) !!}
+                    </div>
+                    <div class="form-group">
+                        <strong>Location:</strong>
+                        {!! Form::text('location', null, array('placeholder' => 'Location','class' => 'form-control')) !!}
+                    </div>
+                    <div class="form-group">
+                        <strong>Brand:</strong>
+                        {!! Form::text('brand', null, array('placeholder' => 'Brand','class' => 'form-control')) !!}
+                    </div>
+                    <div class="form-group">
+                        <strong>State:</strong>
+                        {!! Form::text('state', null, array('placeholder' => 'State','class' => 'form-control')) !!}
+                    </div>
+                    @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                      <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                      <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                      </ul>
+                    </div>
+                    @endif
                     <button type="submit" class="btn btn-primary">Submit</button>
                 {!! Form::close() !!}
             </div>

@@ -28,6 +28,38 @@
                         <strong>Body:</strong>
                         {!! Form::textarea('body', null, array('placeholder' => 'Body','class' => 'form-control')) !!}
                     </div>
+                    <div class="form-group">
+                        <strong>Description:</strong>
+                        {!! Form::text('description', null, array('placeholder' => 'Description','class' => 'form-control')) !!}
+                    </div>
+                    <div class="form-group">
+                        <strong>Price:</strong>
+                        {!! Form::text('price', null, array('placeholder' => 'Price','class' => 'form-control')) !!}
+                    </div>
+                    <div class="form-group">
+                        <strong>Category:</strong><br>   
+                        <?php
+                        $options = array('IT and electrics', 'Vehicles', 'Real Estate', 'Clothing and well-being', 'Hobbies and entertainment');                     
+                    ?>
+                        {!! Form::select('options[]', $options,[], array('class' =>'Category', 'form-control','multiple')) !!}
+
+                    </div>
+                    <div class="form-group">
+                        <strong>Image:</strong>
+                        {!! Form::text('image', null, array('placeholder' => 'Image','class' => 'form-control')) !!}
+                    </div>
+                    <div class="form-group">
+                        <strong>Location:</strong>
+                        {!! Form::text('location', null, array('placeholder' => 'Location','class' => 'form-control')) !!}
+                    </div>
+                    <div class="form-group">
+                        <strong>Brand:</strong>
+                        {!! Form::text('brand', null, array('placeholder' => 'Brand','class' => 'form-control')) !!}
+                    </div>
+                    <div class="form-group">
+                        <strong>State:</strong>
+                        {!! Form::text('state', null, array('placeholder' => 'State','class' => 'form-control')) !!}
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 {!! Form::close() !!}
             </div>

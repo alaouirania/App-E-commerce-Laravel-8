@@ -53,6 +53,14 @@ class PostController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
+            'image' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'category' => 'required',
+            'location' => 'required',
+            'brand' => 'required',
+            'state' => 'required',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
         $input = $request->except(['_token']);
     
@@ -60,6 +68,7 @@ class PostController extends Controller
     
         return redirect()->route('posts.index')
             ->with('success','Post created successfully.');
+            
     }
 
     /**
@@ -100,6 +109,14 @@ class PostController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
+            'image' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'category' => 'required',
+            'location' => 'required',
+            'brand' => 'required',
+            'state' => 'required',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         $post = Post::find($id);

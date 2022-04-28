@@ -6,6 +6,9 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +22,7 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
 //Auth::routes();
@@ -34,3 +37,4 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('permissions', PermissionController::class);
     Route::resource('posts', PostController::class);
 });
+Route::resource('category', CategoryController::class);

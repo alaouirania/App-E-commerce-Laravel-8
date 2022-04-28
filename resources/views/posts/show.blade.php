@@ -24,6 +24,34 @@
                     <strong>Body:</strong>
                     {{ $post->body }}
                 </div>
+                <div class="lead">
+                    <strong>Description:</strong>
+                    {{ $post->description }}
+                </div>
+                <div class="lead">
+                    <strong>Price:</strong>
+                    {{ $post->price }}
+                </div>
+                <div class="lead">
+                    <strong>Category:</strong>
+                    {{ $post->category }}
+                </div>
+                <div class="lead">
+                    <strong>Image:</strong>
+                    {{ $post->image }}
+                </div>
+                <div class="lead">
+                    <strong>Location:</strong>
+                    {{ $post->location }}
+                </div>
+                <div class="lead">
+                    <strong>Brand:</strong>
+                    {{ $post->brand }}
+                </div>
+                <div class="lead">
+                    <strong>State:</strong>
+                    {{ $post->state }}
+                </div>
             </div>
         </div>
     </div>
