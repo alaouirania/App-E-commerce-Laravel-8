@@ -36,5 +36,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('permissions', PermissionController::class);
     Route::resource('posts', PostController::class);
+    Route::resource('category', CategoryController::class);
 });
-Route::resource('category', CategoryController::class);

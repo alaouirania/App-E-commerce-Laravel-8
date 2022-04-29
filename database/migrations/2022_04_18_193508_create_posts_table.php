@@ -25,6 +25,7 @@ class CreatePostsTable extends Migration
             $table->text('brand');
             $table->text('state');
             $table->timestamps();
+
         });
     }
 
