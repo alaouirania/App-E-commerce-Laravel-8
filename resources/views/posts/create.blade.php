@@ -38,14 +38,13 @@
                         {!! Form::text('price', null, array('placeholder' => 'Price','class' => 'form-control')) !!}
                     </div>
                     <div class="form-group">
-                        <strong>Category:</strong><br>   
-                        <?php
-                        $category = array('IT and electrics', 'Vehicles', 'Real Estate', 'Clothing and well-being', 'Hobbies and entertainment');
-                     
-                    ?>
-                        {!! Form::select('category[]', $category,[], array('class' => 'form-control','multiple')) !!}
-
-                        
+                            <label><strong>Category :</strong></label><br>
+                            <select name="category" id="category">
+                                <option value="IT and electrics">IT and electrics</option>
+                                <option value="Real Estate">Real Estate</option>
+                                <option value="Clothing and well-being">Clothing and well-being</option>
+                                <option value="Hobbies and entertainment">Hobbies and entertainment</option>
+                            </select>
                            </div>
                     <div class="form-group">
                         <strong>Image: <br></strong>
@@ -60,8 +59,13 @@
                         {!! Form::text('brand', null, array('placeholder' => 'Brand','class' => 'form-control')) !!}
                     </div>
                     <div class="form-group">
-                        <strong>State:</strong>
-                        {!! Form::text('state', null, array('placeholder' => 'State','class' => 'form-control')) !!}
+                        <label><strong>State :</strong></label><br>
+                        <select name="state" id="state">
+                            <option value="New">New</option>
+                            <option value="Almost New">Almost New</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Old/Obsolete">Old/Obsolete</option>
+                        </select>
                     </div>
                     @if (count($errors) > 0)
                     <div class="alert alert-danger">

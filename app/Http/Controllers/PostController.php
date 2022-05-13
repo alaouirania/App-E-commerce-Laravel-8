@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -30,6 +31,8 @@ class PostController extends Controller
         $data = Post::latest()->paginate(5);
 
         return view('posts.index',compact('data'));
+        return view('welcome', compact('data'));
+
     }
 
     /**
@@ -39,7 +42,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('posts.create');        
+        return view('welcome', compact('data'));
+
     }
 
     /**
@@ -52,18 +57,19 @@ class PostController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'body' => 'required',
             'image' => 'required',
             'description' => 'required',
             'price' => 'required',
             'category' => 'required',
             'location' => 'required',
-            'brand' => 'required',
             'state' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
         $input = $request->except(['_token']);
-    
+        $input = $request->all();
+        $input['category'] = $request->input('category');
+        $input = $request->all();
+        $input['state'] = $request->input('state');
         Post::create($input);
     
         return redirect()->route('posts.index')
@@ -108,13 +114,11 @@ class PostController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'body' => 'required',
             'image' => 'required',
             'description' => 'required',
             'price' => 'required',
             'category' => 'required',
             'location' => 'required',
-            'brand' => 'required',
             'state' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
@@ -140,4 +144,5 @@ class PostController extends Controller
         return redirect()->route('posts.index')
             ->with('success', 'Post deleted successfully.');
     }
+
 }

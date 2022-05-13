@@ -38,3 +38,4 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('posts', PostController::class);
     Route::resource('category', CategoryController::class);
 });
+Route::resource('welcome', PostController::class);

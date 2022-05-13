@@ -32,5 +32,6 @@ class UserTableSeeder extends Seeder
         $role->syncPermissions($permissions);
      
         $user->assignRole([$role->id]);
+
     }
 }

@@ -25,4 +25,14 @@ class Post extends Model
         'brand',
         'state',
     ];
+    public function setCategoryAttribute($value)
+    {
+        $this->attributes['category'] = json_encode($value);
+    }
+
+    public function getCategoryAttribute($value)
+    {
+        return $this->attributes['category'] = json_decode($value);
+    }
+    
 }

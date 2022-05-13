@@ -21,6 +21,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Roles</th>
+                            <th>Verified</th>
                             <th width="280px">Action</th>
                         </tr>
                     </thead>
@@ -37,6 +38,9 @@
                                             <label class="badge badge-dark">{{ $val }}</label>
                                         @endforeach
                                     @endif
+                                </td>
+                                <td>
+                                    {{ $user->email_verified_at }}
                                 </td>
                                 <td>
                                     <a class="btn btn-success" href="{{ route('users.show',$user->id) }}">Show</a>

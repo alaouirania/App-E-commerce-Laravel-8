@@ -35,6 +35,6 @@
                     @endauth
                 </div>
             @endif
-            <h2>Table</h2>
+            
     </body>
 </html>

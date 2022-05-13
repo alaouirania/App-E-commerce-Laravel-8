@@ -14,10 +14,11 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Welcome to your Admin Panel !') }}
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @endsection
