@@ -13,7 +13,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@forelse ($profile as $key)
+			@forelse ($profiles as $key)
 				<tr>
 					<th scope="row">{{ $loop->index + 1 }}</th>
 					<td>{{ $key->title }}</td>

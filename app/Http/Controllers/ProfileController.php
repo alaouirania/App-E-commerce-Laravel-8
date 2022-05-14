@@ -26,14 +26,12 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $profile = Profile::latest()->paginate(5);
+        $profiles = Profile::orderBy('id', 'desc')
+            ->get();
 
-        return view('profile.index',compact('profile'));
-
-
-
+        return view('profile.index', compact('profiles'));
     }
 
     /**
@@ -43,8 +41,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        return view('profile.create');        
-
+        return view('profile.create');
     }
 
     /**
@@ -55,23 +52,22 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $input = $request->validate([
             'title' => 'required',
+            'body' => 'required',
             'image' => 'required',
             'description' => 'required',
             'price' => 'required',
             'category' => 'required',
             'location' => 'required',
             'state' => 'required',
+            'brand' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
-        $input = $request->except(['_token']);
-        $input = $request->all();
-  
-    
-        return redirect()->route('profile.index')
-            ->with('success','Profile created successfully.');
-            
+
+        Profile::create($input);
+
+        return redirect()->route('profile.index');
     }
 
     /**
@@ -97,7 +93,7 @@ class ProfileController extends Controller
     {
         $profile = Profile::find($id);
 
-        return view('profile.edit',compact('profile'));
+        return view('profile.edit', compact('profile'));
     }
 
     /**
@@ -109,23 +105,23 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
+        $input = $request->validate([
             'title' => 'required',
+            'body' => 'required',
             'image' => 'required',
             'description' => 'required',
             'price' => 'required',
             'category' => 'required',
             'location' => 'required',
             'state' => 'required',
+            'brand' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        $profile = Profile::find($id);
-    
-        $profile->update($request->all());
-    
-        return redirect()->route('profile.index')
-            ->with('success', 'profile updated successfully.');
+        Profile::where('id', $id)
+            ->update($input);
+
+        return redirect()->route('profile.index');
     }
 
     /**
@@ -136,10 +132,9 @@ class ProfileController extends Controller
      */
     public function destroy($id)
     {
-        Profile::find($id)->delete();
-    
-        return redirect()->route('profile.index')
-            ->with('success', 'profile deleted successfully.');
-    }
+        Profile::find($id)
+            ->delete();
 
+        return redirect()->route('profile.index');
+    }
 }
