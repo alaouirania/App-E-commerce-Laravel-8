@@ -43,7 +43,7 @@
                     </div>
                     <div class="form-group">
                         <strong>City:</strong>
-                        {!! Form::text('city', array('placeholder' => 'City','class' => 'form-control')) !!}
+                        {!! Form::text('city', null, array('placeholder' => 'City','class' => 'form-control')) !!}
                     </div>
                     <div class="form-group">
                         <strong>Phone Number:</strong>
