@@ -7,6 +7,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProfileController;
+
+use App\Models\Post;
+
+
 
 
 
@@ -21,10 +26,11 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
-
 //Auth::routes();
 
 Auth::routes(['verify' => true]);
@@ -37,5 +43,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('permissions', PermissionController::class);
     Route::resource('posts', PostController::class);
     Route::resource('category', CategoryController::class);
+    Route::resource('profile', ProfileController::class);
 });
-Route::resource('welcome', PostController::class);

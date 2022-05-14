@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-use App\Models\Category;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class ProfileController extends Controller
 {
 
     /**
@@ -16,10 +15,10 @@ class PostController extends Controller
      */
     function __construct()
     {
-         $this->middleware('permission:post-list|post-create|post-edit|post-delete', ['only' => ['index', 'show']]);
-         $this->middleware('permission:post-create', ['only' => ['create', 'store']]);
-         $this->middleware('permission:post-edit', ['only' => ['edit', 'update']]);
-         $this->middleware('permission:post-delete', ['only' => ['destroy']]);
+         $this->middleware('permission:profile-list|profile-create|profile-edit|profile-delete', ['only' => ['index', 'show']]);
+         $this->middleware('permission:profile-create', ['only' => ['create', 'store']]);
+         $this->middleware('permission:profile-edit', ['only' => ['edit', 'update']]);
+         $this->middleware('permission:profile-delete', ['only' => ['destroy']]);
     }
 
     /**
@@ -29,9 +28,9 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $data = Post::latest()->paginate(5);
+        $profile = Profile::latest()->paginate(5);
 
-        return view('posts.index',compact('data'));
+        return view('profile.index',compact('profile'));
 
 
 
@@ -44,7 +43,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');        
+        return view('profile.create');        
 
     }
 
@@ -68,13 +67,10 @@ class PostController extends Controller
         ]);
         $input = $request->except(['_token']);
         $input = $request->all();
-        $input['category'] = $request->input('category');
-        $input = $request->all();
-        $input['state'] = $request->input('state');
-        Post::create($input);
+  
     
-        return redirect()->route('posts.index')
-            ->with('success','Post created successfully.');
+        return redirect()->route('profile.index')
+            ->with('success','Profile created successfully.');
             
     }
 
@@ -86,9 +82,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
+        $profile = Profile::find($id);
 
-        return view('posts.show', compact('post'));
+        return view('profile.show', compact('profile'));
     }
 
     /**
@@ -99,9 +95,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
+        $profile = Profile::find($id);
 
-        return view('posts.edit',compact('post'));
+        return view('profile.edit',compact('profile'));
     }
 
     /**
@@ -124,12 +120,12 @@ class PostController extends Controller
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        $post = Post::find($id);
+        $profile = Profile::find($id);
     
-        $post->update($request->all());
+        $profile->update($request->all());
     
-        return redirect()->route('posts.index')
-            ->with('success', 'Post updated successfully.');
+        return redirect()->route('profile.index')
+            ->with('success', 'profile updated successfully.');
     }
 
     /**
@@ -140,10 +136,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        Post::find($id)->delete();
+        Profile::find($id)->delete();
     
-        return redirect()->route('posts.index')
-            ->with('success', 'Post deleted successfully.');
+        return redirect()->route('profile.index')
+            ->with('success', 'profile deleted successfully.');
     }
 
 }

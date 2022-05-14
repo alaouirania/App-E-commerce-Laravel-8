@@ -37,4 +37,9 @@
             @endif
             
     </body>
+	<table class="table table-bordered table-hover">
+        <thead></thead>
+       <tbody>
+       </tbody>
+        </table>
 </html>

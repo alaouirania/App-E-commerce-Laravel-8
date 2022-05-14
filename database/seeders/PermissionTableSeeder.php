@@ -35,6 +35,10 @@ class PermissionTableSeeder extends Seeder
             'category-create',
             'category-edit',
             'category-delete',
+            'profile-list',
+            'profile-create',
+            'profile-edit',
+            'profile-delete',
 
         ];
 
