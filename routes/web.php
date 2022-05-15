@@ -8,6 +8,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WelcomeController;
 
 use App\Models\Post;
 
@@ -28,9 +29,12 @@ use App\Models\Post;
 
 
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+
+
 //Auth::routes();
 
 Auth::routes(['verify' => true]);

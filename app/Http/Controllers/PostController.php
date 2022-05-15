@@ -89,6 +89,9 @@ class PostController extends Controller
         $post = Post::find($id);
 
         return view('posts.show', compact('post'));
+
+        $data = Post::all();
+        return view('welcome',['posts'=>$data]);
     }
 
     /**

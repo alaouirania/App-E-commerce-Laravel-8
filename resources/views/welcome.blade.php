@@ -35,11 +35,34 @@
                     @endauth
                 </div>
             @endif
-            
-    </body>
-	<table class="table table-bordered table-hover">
-        <thead></thead>
-       <tbody>
-       </tbody>
+            <table border="4">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">State</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+            </tbody>
         </table>
+        <div class="card">
+            <div class="card-body">
+              <ul class="list-group">
+              @foreach($posts as $post)
+                  <li class="list-group-item">
+                      {{$post->title}}
+                  </li>
+              @endforeach
+               </ul>
+             </div>
+          </div>
+    </body>
+    
 </html>

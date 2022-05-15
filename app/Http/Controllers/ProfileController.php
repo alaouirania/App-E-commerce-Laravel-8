@@ -33,7 +33,10 @@ class ProfileController extends Controller
 
         return view('profile.index', compact('profiles'));
     }
-
+    public function posts()
+    {
+        return $this->hasMany(Profile::class);
+    }
     /**
      * Show the form for creating a new resource.
      *

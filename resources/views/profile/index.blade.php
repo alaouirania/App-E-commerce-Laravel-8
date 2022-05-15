@@ -7,7 +7,6 @@
 	<table class="table table-bordered table-hover">
 		<thead>
 			<tr>
-				<th scope="col">#</th>
 				<th scope="col">Title</th>
 				<th scope="col">Action</th>
 			</tr>
@@ -15,13 +14,11 @@
 		<tbody>
 			@forelse ($profiles as $key)
 				<tr>
-					<th scope="row">{{ $loop->index + 1 }}</th>
 					<td>{{ $key->title }}</td>
 					<td>
 						<a href="{{ route('profile.show', $key->id) }}" class="btn btn-primary m-1">Show</a>
 						<a href="{{ route('profile.edit', $key->id) }}" class="btn btn-primary m-1">Edit</a>
 						<a href="#" class="btn btn-danger m-1" onclick="document.getElementById('delete-profile-{{ $key->id }}').submit();">Delete</a>
-                        <a href="#" class="btn btn-primary m-1">Confirm</a>
 						<form method="post" action="{{ route('profile.destroy', $key->id) }}" id="delete-profile-{{ $key->id }}" style="display: none;">
 							@csrf
 							@method('DELETE')
