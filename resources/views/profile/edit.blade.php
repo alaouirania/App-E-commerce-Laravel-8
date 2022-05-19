@@ -13,13 +13,13 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">Create profile
+            <div class="card-header">Create post
                 <span class="float-right">
-                    <a class="btn btn-primary" href="{{ route('profile.index') }}">profile</a>
+                    <a class="btn btn-primary" href="{{ route('profile.index') }}">Posts</a>
                 </span>
             </div>
             <div class="card-body">
-                {!! Form::model($profile, ['route' => ['profile.update', $profile->id], 'method'=>'PATCH']) !!}
+                {!! Form::model($post, ['route' => ['profile.update', $post->id], 'method'=>'PATCH']) !!}
                     <div class="form-group">
                         <strong>Title:</strong>
                         {!! Form::text('title', null, array('placeholder' => 'Title','class' => 'form-control')) !!}

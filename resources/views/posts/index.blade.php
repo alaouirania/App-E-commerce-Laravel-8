@@ -9,7 +9,10 @@
 			<tr>
 				<th scope="col">#</th>
 				<th scope="col">Title</th>
+				<th scope="col">Image</th>
 				<th scope="col">Action</th>
+				
+
 			</tr>
 		</thead>
 		<tbody>
@@ -17,6 +20,7 @@
 				<tr>
 					<th scope="row">{{ $loop->index + 1 }}</th>
 					<td>{{ $key->title }}</td>
+					<td><image src="{{asset('images')}}" /></td>
 					<td>
 						<a href="{{ route('posts.show', $key->id) }}" class="btn btn-primary m-1">Show</a>
 						<a href="{{ route('posts.edit', $key->id) }}" class="btn btn-primary m-1">Edit</a>

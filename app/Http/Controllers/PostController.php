@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
 
+    
     /**
      * create a new instance of the class
      *
@@ -29,7 +30,7 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $data = Post::latest()->paginate(5);
+        $data = Post::latest()->paginate(10);
 
         return view('posts.index',compact('data'));
 
@@ -66,6 +67,14 @@ class PostController extends Controller
             'state' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $image_name = $image->getClientOriginalName();
+            $image->move(public_path('/images'),$image_name);
+        
+            $image_path = "/images/" . $image_name;
+        }
+         
         $input = $request->except(['_token']);
         $input = $request->all();
         $input['category'] = $request->input('category');
@@ -75,6 +84,8 @@ class PostController extends Controller
     
         return redirect()->route('posts.index')
             ->with('success','Post created successfully.');
+
+
             
     }
 

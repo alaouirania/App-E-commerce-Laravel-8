@@ -18,13 +18,15 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->text('description');
-            $table->text('price');
+            $table->decimal('price',8,2);
             $table->string('category');
             $table->string('image');
             $table->text('location');
             $table->text('brand');
             $table->text('state');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
         });
     }

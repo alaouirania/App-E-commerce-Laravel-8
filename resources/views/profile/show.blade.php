@@ -8,7 +8,7 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">Profile
+            <div class="card-header">Post
                 @can('role-create')
                     <span class="float-right">
                         <a class="btn btn-primary" href="{{ route('profile.index') }}">Back</a>
@@ -18,39 +18,39 @@
             <div class="card-body">
                 <div class="lead">
                     <strong>Title:</strong>
-                    {{ $profile->title }}
+                    {{ $post->title }}
                 </div>
                 <div class="lead">
                     <strong>Body:</strong>
-                    {{ $profile->body }}
+                    {{ $post->body }}
                 </div>
                 <div class="lead">
                     <strong>Description:</strong>
-                    {{ $profile->description }}
+                    {{ $post->description }}
                 </div>
                 <div class="lead">
                     <strong>Price:</strong>
-                    {{ $profile->price }}
+                    {{ $post->price }}
                 </div>
                 <div class="lead">
                     <strong>Category:</strong>
-                    {{ $profile->category }}
+                    {{ $post->category }}
                 </div>
                 <div class="lead">
                     <strong>Image:</strong>
-                    {{ $profile->image }}
+                    {{ $post->image }}
                 </div>
                 <div class="lead">
                     <strong>Location:</strong>
-                    {{ $profile->location }}
+                    {{ $post->location }}
                 </div>
                 <div class="lead">
                     <strong>Brand:</strong>
-                    {{ $profile->brand }}
+                    {{ $post->brand }}
                 </div>
                 <div class="lead">
                     <strong>State:</strong>
-                    {{ $profile->state }}
+                    {{ $post->state }}
                 </div>
             </div>
         </div>

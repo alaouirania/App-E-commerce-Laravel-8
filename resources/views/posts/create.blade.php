@@ -41,6 +41,7 @@
                             <label><strong>Category :</strong></label><br>
                             <select name="category" id="category">
                                 <option value="IT and electrics">IT and electrics</option>
+                                <option value="Vehicles">IT and electrics</option>
                                 <option value="Real Estate">Real Estate</option>
                                 <option value="Clothing and well-being">Clothing and well-being</option>
                                 <option value="Hobbies and entertainment">Hobbies and entertainment</option>
@@ -48,7 +49,7 @@
                            </div>
                     <div class="form-group">
                         <strong>Image: <br></strong>
-                        {!! Form::file('image', null, array('placeholder' => ' Choose File','class' => 'form-control')) !!}
+                        {!! Form::file('image', null, array('placeholder' => ' Choose File','class' => 'form-control', 'multiple', 'accept'=>"image/*")) !!}
                     </div>
                     <div class="form-group">
                         <strong>Location:</strong>

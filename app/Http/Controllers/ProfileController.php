@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Profile;
+use App\Models\Post;
 use Illuminate\Http\Request;
+use DB;
 
 class ProfileController extends Controller
 {
@@ -28,14 +28,13 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $profiles = Profile::orderBy('id', 'desc')
-            ->get();
+        $posts = DB::table('posts')->where('user_id', auth()->id())->get();
 
-        return view('profile.index', compact('profiles'));
+        return view('profile.index', compact('posts'));
     }
     public function posts()
     {
-        return $this->hasMany(Profile::class);
+        return $this->hasMany(Post::class);
     }
     /**
      * Show the form for creating a new resource.
@@ -68,7 +67,7 @@ class ProfileController extends Controller
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        Profile::create($input);
+        Post::create($input);
 
         return redirect()->route('profile.index');
     }
@@ -81,9 +80,9 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        $profile = Profile::find($id);
+        $post = Post::find($id);
 
-        return view('profile.show', compact('profile'));
+        return view('profile.show', compact('post'));
     }
 
     /**
@@ -94,9 +93,9 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        $profile = Profile::find($id);
+        $post = Post::find($id);
 
-        return view('profile.edit', compact('profile'));
+        return view('profile.edit', compact('post'));
     }
 
     /**
@@ -121,7 +120,7 @@ class ProfileController extends Controller
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        Profile::where('id', $id)
+        Post::where('id', $id)
             ->update($input);
 
         return redirect()->route('profile.index');
@@ -135,7 +134,7 @@ class ProfileController extends Controller
      */
     public function destroy($id)
     {
-        Profile::find($id)
+        Post::find($id)
             ->delete();
 
         return redirect()->route('profile.index');

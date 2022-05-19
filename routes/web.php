@@ -27,13 +27,12 @@ use App\Models\Post;
 |
 */
 
-
+Artisan::call('storage:link', [] );
 
 /*Route::get('/', function () {
     return view('welcome');
 });*/
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
-
 
 //Auth::routes();
 
@@ -48,4 +47,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('posts', PostController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('profile', ProfileController::class);
+    Route::resource('showpage', WelcomeController::class);
 });

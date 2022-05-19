@@ -51,7 +51,7 @@
                             <li><a class="nav-link" href="{{ route('category.index') }}">Categories</a></li>
                         @endcan
                         @can('profile-list')
-                        <li><a class="nav-link" href="{{ route('profile.index') }}">Users Posts</a></li>
+                        <li><a class="nav-link" href="{{ route('profile.index') }}">Posts</a></li>
                     @endcan
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

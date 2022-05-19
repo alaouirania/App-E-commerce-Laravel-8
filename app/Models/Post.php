@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -24,6 +23,8 @@ class Post extends Model
         'location',
         'brand',
         'state',
+        'user_id',
+        
     ];
     public function setCategoryAttribute($value)
     {
@@ -34,5 +35,6 @@ class Post extends Model
     {
         return $this->attributes['category'] = json_decode($value);
     }
+   
     
 }
