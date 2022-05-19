@@ -1,13 +1,84 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    
+    .card{
+        
+        margin-left: -50px;
+        width: 550px;
+        height: 370px;
+        box-shadow: 5px 7px #628272;
+        
+    }
+    .col-md-8{
+        margin-top: 50px;
+        background-color: transparent;
+        height: 350px;
+        width: 400px;
+    }
+    .card-header{
+        color: #21574a;
+        font-size: 20px;
+        font-weight: bold;
+
+    }
+    .card-body{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #21574a;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .loginpart{
+        padding-top: 20px;
+    }
+    .loginpart button {
+       background-color: #21574a;
+       padding: 5px 50px 5px 50px;
+       margin-left: 200px;
+    }
+    .loginpart button:hover {
+       background-color: #628272;
+    }
+    .loginpart a{
+        margin-left: 185px;
+        font-weight: 600;
+      color: #21574a;
+      text-decoration: none;
+
+    }
+    .loginpart a:hover {
+      color: #628272;
+
+    }
+    .logo1{
+        margin-left: 50px;
+        height: 200px;
+        background-color: #fff;
+        background-image: url();
+    }
+    .logo1 h1{
+        margin-left: 570px;
+    }
+    .logo img{
+       
+        float: left;
+        width: 400px;
+        height: 350px;
+        
+    }
+</style>
 <div class="container">
+    <div class="logo1">
+        <h1>Ynovito</h1>
+        <img style="width:100px" src="" alt="brand"> <!--tu metteras le logo ici ca marche-->
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="card-body">
+                <div class="card-body"style="padding-top: 60px;">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -52,7 +123,7 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                            <div class="loginpart">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>

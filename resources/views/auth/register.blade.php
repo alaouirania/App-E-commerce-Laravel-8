@@ -1,6 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    .card{
+        margin-top: 70px;
+        margin-left: 535px;
+        width: 550px;
+        height: 500px;
+        box-shadow: 5px 7px #628272;
+        
+    }
+    .col-md-12{
+        margin-top: 170px;
+        background-color: #fff;
+        height: 350px;
+        width: 400px;
+    }
+    .card-header{
+        color: #21574a;
+        font-size: 20px;
+        font-weight: bold;
+
+    }
+    .card-body{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #21574a;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .registerbtn{
+        padding-top: 20px;
+    }
+    .registerbtn button{
+        background-color: #21574a;
+       padding: 5px 50px 5px 50px;
+       margin-left: 50px;
+    }
+    .registerbtn button:hover {
+       background-color: #628272;
+    }
+    </style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -86,7 +125,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="row mb-0">
+                        <div class="registerbtn">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}

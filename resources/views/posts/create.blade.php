@@ -20,7 +20,7 @@
                 </span>
             </div>
             <div class="card-body">
-                {!! Form::open(array('route' => 'posts.store', 'method'=>'POST')) !!}
+                {!! Form::open(array('route' => 'posts.store', 'method'=>'POST', 'enctype'=>"multipart/form-data")) !!}
                     <div class="form-group">
                         <strong>Title:</strong>
                         {!! Form::text('title', null, array('placeholder' => 'Title','class' => 'form-control')) !!}
