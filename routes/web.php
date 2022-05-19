@@ -49,3 +49,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('profile', ProfileController::class);
     Route::resource('showpage', WelcomeController::class);
 });
+
+

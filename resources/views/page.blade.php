@@ -35,7 +35,8 @@
 		<tbody>
 			@forelse ($posts as $post)
 				<tr>
-					<td><image style="width:70px;" src="{{ URL::to('/public/Image/') }}"/></td>
+					<td><image style="width:70px;" src="{{asset('public/Image/')}}"/>
+					</td>					
 					<td>{{ $post->title }}</td>
 					<td>{{ $post->description }}</td>
                     <td>{{ $post->price }}</td>

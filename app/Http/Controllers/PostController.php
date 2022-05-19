@@ -100,27 +100,27 @@ class PostController extends Controller
             'state' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
-
-        if($request->file('image')){
-            $file= $request->file('image');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('public/Image'), $filename);
-        }
-
-         
+        
         $input = $request->except(['_token']);
-        $input = $request->all();
-        $input['category'] = $request->input('category');
-        $input = $request->all();
-        $input['state'] = $request->input('state');
+    
+        if($request->hasFile('image'))
+        {
+    
+                $file= $request->file('image');
+                $filename= $file->getClientOriginalName();
+                $file-> move(public_path('public/Image'), $filename);
+                 $input['image'] = $filename; // Save the new and correct file name into the input
+    
+        }
+    
         Post::create($input);
     
         return redirect()->route('posts.index')
             ->with('success','Post created successfully.');
-
-
+    
             
     }
+
 
     /**
      * Display the specified resource.
