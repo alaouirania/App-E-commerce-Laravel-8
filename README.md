@@ -1,65 +1,91 @@
+<img src="icon.png" align="right" />
+
+# YNOVITO 🛍️
+
+
+YNOVITO is an eCommerce website built and designed by NRAN Group.
+
+<img src="YNOVITO_LOGO-removebg-preview.png" align="center" width="400"/>
+<p align="center">
+  
+</p> 
+
+
+
+# This project is created using:
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Project Description
 
-## About Laravel
+YNOVito.ma is a C2C shopping platform where users can offer and sell their own items to other users.
+YNOVito.ma accepts all kind of items and display them by category. From vehicles, and their spare parts to household appliance, and even real estate.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Project Details
+### 1. Authentification and user registration
+- Login
+- Register
+- Forget Password
+- Email Verification
+- Remember Me
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 2. Registered and authenticated users can post offers
+Authenticated users can post some items in the platform and make them sellable, for 
+so, they must click a button “Post new item”, they will be redirected to create post 
+page, where they must provide informations for the item they want to sell, such as:
 
-## Learning Laravel
+- Item’s title: represents the name that will be displayed for the offer.
+- Item’s description: a detailed description that will be displayed once a 
+user clicks on the offer’s post to see it details.
+- Item’s price: this is the price in MAD to display with the offer.
+- Item’s category: represents the category of the item. This field must 
+contain a select input type listing all categories of the website as options. 
+And the user (poster) must choose one.
+- Item’s images: An item must have at least one main image, and max 6 
+images.
+- Item’s location: this location is where users can physically see the item (in 
+case of a possible purchase). By default, if the user doesn’t specify the 
+location, it is automatically filled with the location where the user is. (Based 
+on address of the poster user).
+- Item’s brand: this must contain the brand of the property you want to sell. 
+You can let it empty.
+- Item’s state: this represents the state of the property you want to sell; it 
+accepts one of these values: New, Almost New, Normal, Old/obsolete.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 3.  Show different products and browse them by category
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- IT and electrics: household appliances, IT devices, phones etc..
+- Vehicles: bikes, motorcycles, cars and other vehicles…
+- Real Estate
+- Clothing and well-being
+- Hobbies and entertainment
 
-## Laravel Sponsors
+### 4.  Display product detail page, showing all item’s information
+- When clicking on a post, we should display a page containing all information of the post. Such as the informations put by the poster (from IV. 2.), added to the posting date, the poster’s name and location.
+- The poster’s phone number must be hidden first, the user must unhide it in order to display it. And use it to contact the owner of the item.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### 5.  Administration Panel
 
-### Premium Partners
+### Simple Admin privileges:
+- Admin actions on Users: 
+  - Check all registered users; no matter their state, confirmed (active) or non-confirmed. 
+  - Update user’s information, and archive/activate user’s accounts.
+  - List user’s posts and moderate them.
+- Admin actions on User’s Posts:
+  - Administrators have ability to confirm freshly created user’s posts to publish it.
+  - Admins can update and archive existing post’s information but cannot add new post for a specific user.
+ - Admins can perform action on categories
+  - Create new category / update existing category
+ - Admins can manually activate account for a non-confirmed user, and block/archive a user.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Super-Admin privileges:
+- All privileges of a simple admin + grant / revoke admin privileges for users.
+- Administrator can perform all this action from an “Administration Dashboard” page 
+that displays also some statistics of the website (total user’s number, total sold posts, 
+total non-confirmed Posts, total confirmed and not yet sold posts…)
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# appLaravel
+# Team Members
+### - [AYOUJIL Nada](https://github.com/nadaayoujil)
+### - [MEDAGHRI ALAOUI Rania](https://github.com/alaouirania)
+### - [FOUAD Amine](https://github.com/FAGuts)
+### - [HONISCH Nassima](https://github.com/LeiNHon)

@@ -68,7 +68,7 @@ class ProfileController extends Controller
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
         $input = $request->except(['_token']);
-
+ 
     
         if($request->file('image')){
             $file= $request->file('image');

@@ -4,7 +4,7 @@
 <style>
     .card{
         margin-top: 70px;
-        margin-left: 535px;
+        margin-left: 100px;
         width: 550px;
         height: 500px;
         box-shadow: 5px 7px #628272;
@@ -134,6 +134,7 @@
                         </div>
                     </form>
                 </div>
+                
             </div>
         </div>
     </div>

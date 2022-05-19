@@ -12,7 +12,7 @@
         
     }
     .col-md-8{
-        margin-top: 50px;
+        margin-top: 10px;
         background-color: transparent;
         height: 350px;
         width: 400px;
@@ -54,24 +54,20 @@
     .logo1{
         margin-left: 50px;
         height: 200px;
-        background-color: #fff;
+        margin-top:-20px;
         background-image: url();
+        padding-left:290px;
+        
     }
     .logo1 h1{
         margin-left: 570px;
-    }
-    .logo img{
-       
-        float: left;
-        width: 400px;
-        height: 350px;
-        
-    }
+    } 
+    
 </style>
 <div class="container">
-    <div class="logo1">
-        <h1>Ynovito</h1>
-        <img style="width:100px" src="" alt="brand"> <!--tu metteras le logo ici ca marche-->
+    <div class="logo1" >
+        
+        <img  class="logo"style="width:500px;display: block;"  src="public/Image/logo33.png" alt="brand"> <!--tu metteras le logo ici ca marche-->
     </div>
     <div class="row justify-content-center">
         <div class="col-md-8">

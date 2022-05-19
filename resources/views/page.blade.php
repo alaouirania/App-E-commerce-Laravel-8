@@ -4,20 +4,65 @@
 	.table{
 		margin-top: 10px;
 	}
-	button{
-		background-color:#d39b75;
-		color:#fff;
+	.btnpage {
+		background-color:#fff;
+		text-decoration: none;
+		color:#21574a;
 		padding: 5px 50px 5px 50px;
-		font-weight: 600;
+		font-weight: bold;
 		border-radius: 10px;
-		border: 1px solid #21574a;
-		margin-left:20px;	}
+		border: 2px solid #21574a;
+		margin-left:35px;	}
+	.btnshow{
+        box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+        background-color: #21574a;
+        padding: 7px 10px 8px 10px;
+        text-align: center;
+        border-radius: 5px;
+        text-decoration: none;
+        border: 1px solid #21574a;
+    }
+    .btnshow:hover{
+        background-color: #628272;
+        border: 1px solid #628272;
+    }
+	.btnbuy{
+        box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+        background-color: #21574a;
+        padding: 7px 10px 8px 10px;
+        text-align: center;
+        border-radius: 5px;
+        text-decoration: none;
+        border: 1px solid #21574a;
+    }
+    .btnbuy:hover{
+        background-color: #628272;
+        border: 1px solid #628272;
+    }
+
+	td{
+		text-align: center;
+        vertical-align: middle;
+	 }
+
+
 </style>
-<button>IT and electrics</button>
-<button>Vehicles</button>
-<button>Real Estate</button>
-<button>Clothing and well-being</button>
-<button>Hobbies and entertainment</button>
+<span class="float-right">
+	<a class="btnpage" href="">IT and electrics</a>
+</span>
+<span class="float-right">
+	<a class="btnpage" href="">Vehicles</a>
+</span>
+<span class="float-right">
+	<a class="btnpage" href="">Real Estate</a>
+</span>
+<span class="float-right">
+	<a class="btnpage" href="">Clothing and well-being</a>
+</span>
+<span class="float-right">
+	<a class="btnpage" href="">Hobbies and entertainment</a>
+</span>
+
 <div class="row m-3">
 	<table class="table table-bordered table-hover">
 		<!--<thead>
@@ -44,8 +89,8 @@
 					<td>{{ $post->location }}</td>
 					<td>{{ $post->state }}</td>
 					<td>
-						<a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary m-1">Show</a>
-                        <a href="#" class="btn btn-primary m-1">Buy Now</a>
+						<a href="{{ route('posts.show', $post->id) }}" class="btnshow btn-primary m-1">Show</a>
+                        <a href="#" class="btnbuy btn-primary m-1">Buy Now</a>
 
 					</td>
 				</tr>

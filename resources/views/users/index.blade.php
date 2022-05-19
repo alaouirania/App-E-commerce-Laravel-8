@@ -1,5 +1,67 @@
 @extends('layouts.app')
 @section('content')
+<style>
+
+    .card-body{
+        color: #21574a;
+    }
+    .card-header{
+        text-align: left;
+        font-weight: bold;
+        color: #21574a;
+        font-size: 25px;
+    }
+    .float-right a{
+        box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+        background-color: #21574a;
+        color: #fff;
+        font-weight: 300;
+        border: 1px solid #21574a;
+        float: right;
+        padding: 5px 10px 5px 10px;
+    }
+    .float-right a:hover{
+        background-color: #628272;
+        border: 1px solid #628272;
+    }
+    .btnshow{
+        box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+        background-color: #21574a;
+        padding: 7px 10px 8px 10px;
+        text-align: center;
+        border-radius: 5px;
+        text-decoration: none;
+        border: 1px solid #21574a;
+    }
+    .btnshow:hover{
+        background-color: #628272;
+        border: 1px solid #628272;
+    }
+
+    .btnedit{
+        box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+        background-color: #628272;
+        padding: 7px 10px 8px 10px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        border: 1px solid #628272;
+    }
+    .btnedit:hover{
+        background-color: #9ca18d;
+        border: 1px solid #9ca18d;
+    }
+    .btndel{
+        box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+        background-color: #DC3545;
+        padding: 7px 10px 8px 10px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        border: 1px solid #DC3545;
+    }
+    
+</style>
 <div class="container">
     <div class="justify-content-center">
         @if (\Session::has('success'))
@@ -43,13 +105,13 @@
                                     {{ $user->email_verified_at }}
                                 </td>
                                 <td>
-                                    <a class="btn btn-success" href="{{ route('users.show',$user->id) }}">Show</a>
+                                    <a class="btnshow btn-success" href="{{ route('users.show',$user->id) }}">Show</a>
                                     @can('user-edit')
-                                        <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
+                                        <a class="btnedit btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
                                     @endcan
                                     @can('user-delete')
                                         {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                        {!! Form::submit('Delete', ['class' => 'btndel btn-danger']) !!}
                                         {!! Form::close() !!}
                                     @endcan
                                 </td>
