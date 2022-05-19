@@ -35,7 +35,7 @@
 		<tbody>
 			@forelse ($posts as $post)
 				<tr>
-					<td><image style="width:70px;" src="{{asset('public/Image/')}}"/>
+					<td><image name="image" id="image" style="width:70px;" src="{{ asset('public/Image/'.$post->image) }}"/></td>
 					</td>					
 					<td>{{ $post->title }}</td>
 					<td>{{ $post->description }}</td>

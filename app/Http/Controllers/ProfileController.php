@@ -26,9 +26,12 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
-        $posts = DB::table('posts')->where('user_id', auth()->id())->get();
+        //$posts = DB::table('posts')->where('user_id','=', auth()->id())->get();
+       // $posts = DB::table('posts')->where('user_id','=','$id')->pluck('id');
+       $posts = Post::orderBy('id','DESC')->paginate(5);
 
         return view('profile.index', compact('posts'));
     }
@@ -56,20 +59,28 @@ class ProfileController extends Controller
     {
         $input = $request->validate([
             'title' => 'required',
-            'body' => 'required',
             'image' => 'required',
             'description' => 'required',
             'price' => 'required',
             'category' => 'required',
             'location' => 'required',
             'state' => 'required',
-            'brand' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
+        $input = $request->except(['_token']);
 
+    
+        if($request->file('image')){
+            $file= $request->file('image');
+            $filename= $file->getClientOriginalName();
+            $file-> move(public_path('public/Image'), $filename);
+            $input['image']= $filename;
+        }
         Post::create($input);
 
-        return redirect()->route('profile.index');
+        return redirect()->route('profile.index')            
+        ->with('success','Post created successfully.');
+
     }
 
     /**
@@ -109,14 +120,12 @@ class ProfileController extends Controller
     {
         $input = $request->validate([
             'title' => 'required',
-            'body' => 'required',
             'image' => 'required',
             'description' => 'required',
             'price' => 'required',
             'category' => 'required',
             'location' => 'required',
             'state' => 'required',
-            'brand' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 

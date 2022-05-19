@@ -20,8 +20,8 @@
 				<tr>
 					<th scope="row">{{ $loop->index + 1 }}</th>
 					<td>{{ $post->title }}</td>
-					<td><image src="{{asset('images')}}" /></td>
-					<td>
+					<td><image name="image" id="image" style="width:70px;" src="{{ asset('public/Image/'.$post->image) }}"/></td>
+						<td>
 						<a href="{{ route('profile.show', $post->id) }}" class="btn btn-primary m-1">Show</a>
 						<a href="{{ route('profile.edit', $post->id) }}" class="btn btn-primary m-1">Edit</a>
 						<a href="#" class="btn btn-danger m-1" onclick="document.getElementById('delete-post-{{ $post->id }}').submit();">Delete</a>

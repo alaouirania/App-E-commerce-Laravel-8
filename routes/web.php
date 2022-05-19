@@ -48,6 +48,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('category', CategoryController::class);
     Route::resource('profile', ProfileController::class);
     Route::resource('showpage', WelcomeController::class);
+    Route::resource('page', PostController::class);
+
 });
 
 

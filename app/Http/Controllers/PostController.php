@@ -32,7 +32,7 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $data = Post::latest()->paginate(10);
+        $data = Post::orderBy('id','DESC')->paginate(20);
 
         return view('posts.index',compact('data'));
 
@@ -90,7 +90,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $input = $request->validate([
             'title' => 'required',
             'image' => 'required',
             'description' => 'required',
@@ -109,10 +109,9 @@ class PostController extends Controller
                 $file= $request->file('image');
                 $filename= $file->getClientOriginalName();
                 $file-> move(public_path('public/Image'), $filename);
-                 $input['image'] = $filename; // Save the new and correct file name into the input
+                 $input['image'] = $filename; 
     
         }
-    
         Post::create($input);
     
         return redirect()->route('posts.index')
