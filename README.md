@@ -95,8 +95,8 @@ total non-confirmed Posts, total confirmed and not yet sold posts…)
 - php artisan migrate
 - php artisan migrate:fresh --seed
 - php artisan db:seed --class=PermissionTableSeeder
-    php artisan db:seed --class=RoleTableSeeder
-    php artisan db:seed --class=UserTableSeeder
-    php artisan db:seed --class=CategorySeeder
+- php artisan db:seed --class=RoleTableSeeder
+- php artisan db:seed --class=UserTableSeeder
+- php artisan db:seed --class=CategorySeeder
 - php artisan serve
 
