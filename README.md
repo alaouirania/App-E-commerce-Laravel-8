@@ -89,3 +89,13 @@ total non-confirmed Posts, total confirmed and not yet sold posts…)
 ### - [MEDAGHRI ALAOUI Rania](https://github.com/alaouirania)
 ### - [FOUAD Amine](https://github.com/FAGuts)
 ### - [HONISCH Nassima](https://github.com/LeiNHon)
+
+# How To Start The Project
+1/ Create database called 'laravelapp' in phpmyadmin
+2/ php artisan migrate
+3/ php artisan migrate:fresh --seed
+4/ php artisan db:seed --class=PermissionTableSeeder
+    php artisan db:seed --class=RoleTableSeeder
+    php artisan db:seed --class=UserTableSeeder
+    php artisan db:seed --class=CategorySeeder
+5/ php artisan serve
